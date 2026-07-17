@@ -40,6 +40,12 @@
         background-color: #444;
         color: white;
     }
+    .seguro{
+        background-color: #22c55e;
+    }
+    .bomba{
+        background-color: #ef4444;
+    }
 </style>
 <body>
     <h1>💣 Jogo da Bomba 💣</h1>
@@ -98,6 +104,21 @@
                 botao.disabled = true
             }
         }
+        //mostrar todas as bombas depois que perde
+        function revelarBombas(){
+            var botoes = document.querySelectorAll(".casa")
+            botoes.forEach((btn, index) =>{
+                if(bombas.includes(index)){
+                    btn.classList.add("bomba")
+                    btn.innerHTML = "💣"
+                }
+            })
+        }
+         function desativarJogo(){
+            var botoes = document.querySelectorAll(".casa")
+            botoes.forEach(btn =>btn.disabled = true)
+         }
+         iniciarJogo()
 
      </script>
 </body>
